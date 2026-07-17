@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Microsoft Outlook Remote Code Execution CVE-2024-21413.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Microsoft Outlook Remote Code Execution CVE-2024-21413"
+              "title": "README"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Microsoft Outlook Remote Code Execution CVE-2024-21413.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Обратные ссылки для Microsoft Outlook Remote Code Execution CVE-2024-21413"
+              "title": "Обратные ссылки для README"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Microsoft Outlook Remote Code Execution CVE-2024-21413.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Исходящие ссылки из Microsoft Outlook Remote Code Execution CVE-2024-21413"
+              "title": "Исходящие ссылки из README"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Microsoft Outlook Remote Code Execution CVE-2024-21413.md",
+                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Структура Microsoft Outlook Remote Code Execution CVE-2024-21413"
+              "title": "Структура README"
             }
           },
           {

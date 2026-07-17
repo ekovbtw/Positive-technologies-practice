@@ -1,4 +1,5 @@
-Паспорт уязвимости: [CVE-2024-21413 (Moniker Link)](https://www.cve.org/CVERecord?id=CVE-2024-21413)
+## Microsoft Outlook Remote Code Execution CVE-2024-21413
+CVE-2024-21413 Moniker Links — это критическая уязвимость (с оценкой 9.8 по шкале CVSS) удаленного выполнения кода (RCE) и кражи учетных данных, обнаруженная в почтовом клиенте Microsoft Outlook. Паспорт уязвимости: [CVE-2024-21413 (Moniker Link)](https://www.cve.org/CVERecord?id=CVE-2024-21413)
 
 ## Отчеты, по которому проводилось исследование уязвимости: 
 1. [Check Point research](https://research.checkpoint.com/2024/the-risks-of-the-monikerlink-bug-in-microsoft-outlook-and-the-big-picture/), собственно те, кто нашел уязвимость
@@ -11,7 +12,7 @@ Check Point в своем отчете объясняют, что уязвимо
 В результате происходит передача NTLM-хеша учетной записи пользователя на сервер злоумышленника без каких-либо предупреждений. Полученные учетные данные могут быть использованы для дальнейших атак, например для аутентификации в сети или подбора пароля. Для успешной эксплуатации достаточно, чтобы пользователь открыл письмо в уязвимой версии Outlook.
 
 ## Архитектура VMware
-1. Windows 11 (version 23H2) (victim OS)
+1. Windows 11 (version 23H2) (Виртуальная машина с уязвимой версией операционной системы Windows и установленным Microsoft Outlook 2019)
 2. Kali linux (version 2026.2) (attacker OS)
 3. Microsoft office 2019 (Outlook version: 2002 build 12527.22253)
 
