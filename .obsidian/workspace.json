@@ -180,7 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,5 +195,12 @@
     }
   },
   "active": "5ed4d0cae65eaea9",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Pasted image 20260717230344.png",
+    "Pasted image 20260717230130.png",
+    "images/Pasted image 20260717225702.png",
+    "images/Pasted image 20260717225617.png",
+    "images",
+    "images/Pasted image 20260717225601.png"
+  ]
 }
