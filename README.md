@@ -26,6 +26,46 @@ Check Point в своем отчете объясняют, что уязвимо
 После включения Responder убеждаемся, что в нашей лаборатории Windows может достичь поднятого SMB сервера(одно из условий выполнения уязвимости).
 ![[Pasted image 20260718143013.png]]
 ![[Pasted image 20260718134836.png]]
-Запустим SMTP сервер на Kali 
+Запустим SMTP сервер на Kali (Postfix + Dovecot). Чтобы доставить письмо в Outlook в «первозданном» виде (если отправить обычным письмом, наверняка Outlook или другой почтовый сервис заблокирует письмо с потенциально опасным типом file://, решено полностью отказаться от интернета и поднять легитимную почту прямо на Kali Linux:
+```
+sudo apt update && sudo apt install -y postfix dovecot-imapd python3-aiosmtpd python3-dnspython
+```
+Далее создадим почтовый ящик: 
+```
+sudo adduser ilja_victim
+```
+Далее настройки Postfix и Dovecot: 
+```
+# Указали домены, для которых почта считается локальной
+sudo postconf -e "mydestination = kali.local, localhost.localdomain, localhost"
 
-Используя python-скрипт CVE_exploit.py отправим письмо:
+# Включили SASL-аутентификацию и связали её с Dovecot
+sudo postconf -e "smtpd_sasl_auth_enable = yes"
+sudo postconf -e "smtpd_sasl_type = dovecot"
+sudo postconf -e "smtpd_sasl_path = private/auth"
+sudo postconf -e "smtpd_sasl_security_options = noanonymous"
+sudo postconf -e "broken_sasl_auth_clients = yes"
+
+# Настроили правила доверия для локальной сети стенда
+sudo postconf -e "smtpd_recipient_restrictions = permit_mynetworks, permit_sasl_authenticated, reject_unauth_destination"
+
+```
+Для удобства был создан скрипт **setup_lab.sh**, чтобы запустить используем: 
+```
+chmod +x /home/kali/setup_lab.sh
+sudo /home/kali/setup_lab.sh
+
+```
+Для запуска локальной почты, используем: 
+```
+sudo systemctl start postfix dovecot
+```
+Используя python-скрипт **CVE_exploit.py** отправим письмо, используя команды: 
+```
+python3 /home/kali/CVE_exploit.py   # Отправка сформированного HTML-письма
+```
+![[Pasted image 20260719230221.png]]
+В итоге жертва получает следующее письмо: 
+![[Pasted image 20260719230512.png]]
+При нажатии на письмо происходит следующее: 
+![[Pasted image 20260719230714.png]]
