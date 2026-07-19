@@ -16,15 +16,21 @@ Check Point в своем отчете объясняют, что уязвимо
 2. **Kali linux (version 2026.2)** (виртуальная машина, выполняющая роль удаленного SMB-сервера, необходимого для моделирования сетевого взаимодействия при обработке Moniker-ссылок)
 3. **Microsoft office 2019 (Outlook version: 2002 build 12527.22253)**
 
-<img src="images/VMware_windows_settings.png" width="800">![[VMware_kali_settings.png]] ![[IP adress kali.png]] ![[IP adress windows.png]]  
-Настройки ВМ. 
+<img src="images/VMware_windows_settings.png" width="250"> <img src="images/VMware_kali_settings.png" width="275"> 
+
+<img src="images/IP adress kali.png" width="500">
+<img src="images/IP adress windows.png" width="450">
+Настройки и конфигурация лаборатории. 
 
 ## Демонстрация эксплуатации
 В первую очередь поднимем SMB-сервер на Kali. Это можно сделать при помощи Responder или встроенной команды "Impacket-smbserver". Я буду использовать Responder, так как основная цель - продемонстрировать утечку NTLM хэша, Responder специально создан для перехвата именно SMB аутентификации. команда ```sudo responder -I eth0``` откроет Responder на Kali Linux. 
-![[Responder is ready 2.png]]
+<img src="images/Responder is ready 2.png" width="700">
+
 После включения Responder убеждаемся, что в нашей лаборатории Windows может достичь поднятого SMB сервера(одно из условий выполнения уязвимости).
-![[Ping.png]]
-![[Responder is ready.png]]
+
+<img src="images/Ping.png" width="700">
+<img src="images/Responder is ready.png" width="700">
+
 Запустим SMTP сервер на Kali (Postfix + Dovecot). Чтобы доставить письмо в Outlook в «первозданном» виде (если отправить обычным письмом, наверняка Outlook или другой почтовый сервис заблокирует письмо с потенциально опасным типом file://, решено полностью отказаться от интернета и поднять легитимную почту прямо на Kali Linux:
 ```
 sudo apt update && sudo apt install -y postfix dovecot-imapd python3-aiosmtpd python3-dnspython
@@ -63,14 +69,15 @@ sudo systemctl start postfix dovecot
 ```
 python3 /home/kali/CVE_exploit.py   # Отправка сформированного HTML-письма
 ```
-![[Pasted image 20260719230221.png]]
+<img src="images/Delivered mail.png" width="300">
 В итоге жертва получает следующее письмо: 
-![[Outlook mail.png]]
+<img src="images/Outlook mail" width="300">
 При нажатии на письмо происходит следующее: 
-![[Warn.png]]![[Hash.png]]
+<img src="images/Warn" width="300">
+<img src="images/Hash.png" width="300">
 NTLM хэш успешно был получен злоумышленником. С помощью этого хэша можно подобрать пароль (например брутфорсом). Также можно переслать его на соседний сервер сети.
 В машине Windows, для нахождения Moniker, вызывается функция MkParseDisplayName. Убедились в этом при помощи Windbg программы. После перехода по ссылке выполнение программы было остановлено в момент вызова данной функции.
-![[WinDBG.png]]
+<img src="images/WinDBG.png" width="300">
 
 
 ## Меры по устранению
