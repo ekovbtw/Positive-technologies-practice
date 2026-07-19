@@ -69,15 +69,20 @@ sudo systemctl start postfix dovecot
 ```
 python3 /home/kali/CVE_exploit.py   # Отправка сформированного HTML-письма
 ```
-<img src="images/Delivered mail.png" width="300">
+<img src="images/Delivered mail.png" width="700">
+
 В итоге жертва получает следующее письмо: 
-<img src="images/Outlook mail" width="300">
+<img src="images/Outlook mail.png" width="700">
+
 При нажатии на письмо происходит следующее: 
-<img src="images/Warn" width="300">
-<img src="images/Hash.png" width="300">
+
+<img src="images/Warn.png" width="700">
+<img src="images/Hash.png" width="700">
+
 NTLM хэш успешно был получен злоумышленником. С помощью этого хэша можно подобрать пароль (например брутфорсом). Также можно переслать его на соседний сервер сети.
 В машине Windows, для нахождения Moniker, вызывается функция MkParseDisplayName. Убедились в этом при помощи Windbg программы. После перехода по ссылке выполнение программы было остановлено в момент вызова данной функции.
-<img src="images/WinDBG.png" width="300">
+
+<img src="images/WinDBG.png" width="700">
 
 
 ## Меры по устранению
