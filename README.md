@@ -16,15 +16,15 @@ Check Point в своем отчете объясняют, что уязвимо
 2. **Kali linux (version 2026.2)** (виртуальная машина, выполняющая роль удаленного SMB-сервера, необходимого для моделирования сетевого взаимодействия при обработке Moniker-ссылок)
 3. **Microsoft office 2019 (Outlook version: 2002 build 12527.22253)**
 
-![[Pasted image 20260717225601.png]]![[Pasted image 20260717225702.png]] ![[Pasted image 20260717230130.png]] ![[Pasted image 20260717230344.png]]  
+![[VMware_windows_settings.png]]![[VMware_kali_settings.png]] ![[IP adress kali.png]] ![[IP adress windows.png]]  
 Настройки ВМ. 
 
 ## Демонстрация эксплуатации
 В первую очередь поднимем SMB-сервер на Kali. Это можно сделать при помощи Responder или встроенной команды "Impacket-smbserver". Я буду использовать Responder, так как основная цель - продемонстрировать утечку NTLM хэша, Responder специально создан для перехвата именно SMB аутентификации. команда ```sudo responder -I eth0``` откроет Responder на Kali Linux. 
-![[Pasted image 20260718142923.png]]
+![[Responder is ready 2.png]]
 После включения Responder убеждаемся, что в нашей лаборатории Windows может достичь поднятого SMB сервера(одно из условий выполнения уязвимости).
-![[Pasted image 20260718143013.png]]
-![[Pasted image 20260718134836.png]]
+![[Ping.png]]
+![[Responder is ready.png]]
 Запустим SMTP сервер на Kali (Postfix + Dovecot). Чтобы доставить письмо в Outlook в «первозданном» виде (если отправить обычным письмом, наверняка Outlook или другой почтовый сервис заблокирует письмо с потенциально опасным типом file://, решено полностью отказаться от интернета и поднять легитимную почту прямо на Kali Linux:
 ```
 sudo apt update && sudo apt install -y postfix dovecot-imapd python3-aiosmtpd python3-dnspython

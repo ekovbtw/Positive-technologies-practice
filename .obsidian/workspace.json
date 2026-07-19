@@ -11,14 +11,12 @@
             "id": "5ed4d0cae65eaea9",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
+                "file": "images/Ping.png"
               },
-              "icon": "lucide-file",
-              "title": "README"
+              "icon": "lucide-image",
+              "title": "Ping"
             }
           }
         ]
@@ -196,19 +194,20 @@
   },
   "active": "5ed4d0cae65eaea9",
   "lastOpenFiles": [
-    "Pasted image 20260720000253.png",
-    "Pasted image 20260719235602.png",
-    "Pasted image 20260719230714.png",
-    "Pasted image 20260719230512.png",
-    "Pasted image 20260719230221.png",
-    "Pasted image 20260719230216.png",
+    "images/Responder is ready 2.png",
+    "images/Responder is ready.png",
+    "images/Responder.png",
+    "images/IP adress windows.png",
+    "images/IP adress kali.png",
+    "images/VMware_kali_settings.png",
+    "images/VMware_windows_settings.png",
+    "images/Pasted image 20260717225617.png",
+    "README.md",
+    "images/Pasted image 20260720000253.png",
+    "images/Pasted image 20260719235602.png",
+    "images/Pasted image 20260719230714.png",
     "CVE_exploit.py",
     "setup_lab.sh",
-    "Pasted image 20260718143013.png",
-    "Pasted image 20260718142923.png",
-    "Pasted image 20260718141400.png",
-    "Pasted image 20260718141008.png",
-    "Pasted image 20260718140009.png",
     "images"
   ]
 }
