@@ -16,7 +16,7 @@ Check Point в своем отчете объясняют, что уязвимо
 2. **Kali linux (version 2026.2)** (виртуальная машина, выполняющая роль удаленного SMB-сервера, необходимого для моделирования сетевого взаимодействия при обработке Moniker-ссылок)
 3. **Microsoft office 2019 (Outlook version: 2002 build 12527.22253)**
 
-![VMware Settings](images/VMware_windows-settings.png)![[VMware_kali_settings.png]] ![[IP adress kali.png]] ![[IP adress windows.png]]  
+<img src="images/VMware_windows_settings.png" width="800">![[VMware_kali_settings.png]] ![[IP adress kali.png]] ![[IP adress windows.png]]  
 Настройки ВМ. 
 
 ## Демонстрация эксплуатации
